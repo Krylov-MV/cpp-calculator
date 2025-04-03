@@ -28,12 +28,12 @@ bool ReadToken(std::string& token) {
 }
 
 bool RunCalculatorCycle() {
-    Number number;
+    Number number = 0;
     Number result = 0;
     Number memory = 0;
     bool memory_save = false;
 
-    std::string token;
+    std::string token = "";
     
     if (!ReadNumber(number)) {
         return false;
