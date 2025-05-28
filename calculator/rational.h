@@ -17,34 +17,27 @@ public:
     Rational& operator=(const Rational&) = default;
 
     Rational operator+(const Rational& other) const {
-        return Rational(
-            numerator_ * other.denominator_ + other.numerator_ * denominator_,
-            denominator_ * other.denominator_
-            );
+        Rational r_ = *this;
+        r_ += other;
+        return r_;
     }
 
     Rational operator-(const Rational& other) const {
-        return Rational(
-            numerator_ * other.denominator_ - other.numerator_ * denominator_,
-            denominator_ * other.denominator_
-            );
+        Rational r_ = *this;
+        r_ -= other;
+        return r_;
     }
 
     Rational operator*(const Rational& other) const {
-        return Rational(
-            numerator_ * other.numerator_,
-            denominator_ * other.denominator_
-            );
+        Rational r_ = *this;
+        r_ *= other;
+        return r_;
     }
 
     Rational operator/(const Rational& other) const {
-        if (other.numerator_ == 0) {
-            std::abort();
-        }
-        return Rational(
-            numerator_ * other.denominator_,
-            denominator_ * other.numerator_
-            );
+        Rational r_ = *this;
+        r_ /= other;
+        return r_;
     }
 
     Rational& operator+=(const Rational& other) {

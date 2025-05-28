@@ -31,12 +31,18 @@ public:
 
     std::optional<Error> Pow(Number n) {
         if constexpr (std::is_integral_v<Number>) {
-            if (current_ == 0 && n == 0) return "Zero power to zero";
+            if (current_ == 0 &&
+                n == 0) {
+                return "Zero power to zero";
+            }
             if (n < 0) return "Integer negative power";
             current_ = ::IntegerPow(current_, n);
         }
         else if constexpr (std::is_same_v<Number, Rational>) {
-            if (current_ == 0 && n == 0) return "Zero power to zero";
+            if (current_ == 0 &&
+                n == 0) {
+                return "Zero power to zero";
+            }
             if (n.GetDenominator() != 1) return "Fractional power is not supported";
             current_ = ::Pow(current_, n);
         }
