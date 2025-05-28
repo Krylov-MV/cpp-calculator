@@ -71,13 +71,12 @@ void MainWindow::AddText(const QString& suffix){
 void MainWindow::SetOperation(Operation op) {
     if (current_operation_ == Operation::NO_OPERATION) {
         calculator_.Set(active_number_);
+        input_number_.clear();
     }
 
     current_operation_ = op;
 
     ui->l_formula->setText(QString ("%1 %2").arg(calculator_.GetNumber()).arg(OpToString(current_operation_)));
-
-    input_number_.clear();
 }
 
 void MainWindow::on_tb_one_clicked()
